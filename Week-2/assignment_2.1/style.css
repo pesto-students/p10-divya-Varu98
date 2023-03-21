@@ -70,9 +70,12 @@ main {
 }
 .img-div img {
   width: 100%;
+  object-fit: cover;
   border-radius: 5px;
 }
-
+.img-div {
+  margin: auto 0;
+}
 form {
   grid-column: span 2;
   gap: 1rem;
