@@ -1,7 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: rgb(77, 77, 77);
+}
+
+button {
+  background: rgb(100, 57, 131);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: antiquewhite;
+  font-weight: bold;
+  margin: 1rem 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+}
+button:hover {
+  box-shadow: none;
+}
+button:active {
+  background: rgba(100, 57, 131, 0.781);
 }
 body > * {
   width: 90vw;
@@ -28,6 +51,39 @@ main {
   flex-direction: column;
   gap: 2rem;
 }
+.blogs-div h3 {
+  color: rgb(134, 34, 206);
+}
 .img-div img {
   width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 25rem;
+}
+
+form > label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+form label input {
+  justify-self: end;
+}
+
+form button {
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
 }
