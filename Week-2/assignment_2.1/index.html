@@ -54,37 +54,37 @@
             <!-- adding comment -->
             <div class="radio-class">
                 <label for="title">Title
-                    <input name="title" type="radio">
+                    <input required name="title" type="radio">
                 </label>
                 <label for="title">Mr
-                    <input name="title" type="radio">
+                    <input required name="title" type="radio">
                 </label>
                 <label for="title">Mrs
-                    <input name="title" type="radio">
+                    <input required name="title" type="radio">
                 </label>
                 <label for="title">Miss
-                    <input name="title" type="radio">
+                    <input required name="title" type="radio">
                 </label>
             </div>
             <label for="fname">First name
-                <input name="fname" type="text">
+                <input pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" name="fname" type="text">
             </label>
             <label for="lname">
                 Last name
-                <input name="lname" type="text">
+                <input pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" name="lname" type="text">
             </label>
             <label for="email">Email
-                <input type="text" name="email">
+                <input required type="text" name="email">
             </label>
             <label for="phone">Phone Number
-                <input type="text" name="phone">
+                <input required type="text" name="phone">
             </label>
             <label for="password">Password
-                <input type="text" name="password">
+                <input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" type="password" name="password">
             </label>
             <label for="confirm-pass">
                 Confirm Password
-                <input type="text" name="confirm-pass">
+                <input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" type="password" name="confirm-pass">
             </label>
             <label for="country">Country
                 <select type="" name="country">
@@ -95,7 +95,7 @@
                 </select>
             </label>
             <label for="term">
-                <input type="checkbox" name="term">
+                <input required type="checkbox" name="term">
                 I agree to the terms and conditions
             </label>
             <button>Sign Up</button>
