@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: rgb(77, 77, 77);
+}
+body {
+  background-color: rgb(250, 242, 232);
+  margin: 0 auto;
+}
+button {
+  background: rgb(100, 57, 131);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: antiquewhite;
+  font-weight: bold;
+  margin: 1rem 0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+}
+button:hover {
+  box-shadow: none;
+}
+button:active {
+  background: rgba(100, 57, 131, 0.781);
+}
+body > * {
+  width: 90vw;
+  margin-inline: auto;
+}
+header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 60vw;
+  margin-inline: auto;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 1rem;
+}
+.blogs-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.blogs-div div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+}
+.blogs-div h3 {
+  color: rgb(134, 34, 206);
+  text-align: left;
+  margin: 0;
+}
+.img-div img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.img-div {
+  margin: auto 0;
+}
+form {
+  grid-column: span 2;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 10px;
+  border: gray;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 30rem;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+form > label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  color: rgb(81, 26, 121);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+form label input {
+  justify-self: end;
+  align-self: flex-end;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.2rem;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+form button {
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr;
+    gap: 0;
+  }
+  .blogs-div {
+    grid-row-start: 2;
+  }
+  .img-div {
+    grid-row-start: 1;
+    margin-bottom: 3rem;
+  }
+}

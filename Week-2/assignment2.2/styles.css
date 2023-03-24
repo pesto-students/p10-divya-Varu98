@@ -1,0 +1,66 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.square {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 20rem;
+  height: 20rem;
+  position: relative;
+}
+.text {
+  font-size: 4rem;
+  position: absolute;
+  top: 7rem;
+  left: 7rem;
+  margin: auto;
+  z-index: -1;
+}
+
+.square .red {
+  width: 10rem;
+  height: 10rem;
+  background-color: red;
+  transform-origin: top left;
+  transition-duration: 0.7s;
+}
+.square:hover .red {
+  transform: rotate(90deg);
+}
+
+.square .blue {
+  width: 10rem;
+  height: 10rem;
+  background-color: blue;
+  transform-origin: top right;
+  transition-duration: 0.7s;
+}
+.square:hover .blue {
+  transform: rotate(-90deg);
+}
+
+.square .green {
+  width: 10rem;
+  height: 10rem;
+  background-color: green;
+  transform-origin: bottom right;
+  transition-duration: 0.7s;
+}
+.square:hover .green {
+  transform: rotate(90deg);
+}
+
+.square .yellow {
+  width: 10rem;
+  height: 10rem;
+  background-color: yellow;
+  transform-origin: bottom left;
+  transition-duration: 0.7s;
+}
+.square:hover .yellow {
+  transform: rotate(-90deg);
+}

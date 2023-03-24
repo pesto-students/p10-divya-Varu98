@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>React a library for creating single page applications</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aut quas error hic eum consequatur delectus
+            laborum veniam similique vitae doloremque sit, architecto odit consectetur voluptatibus, officiis dolorem,
+            saepe quia id rerum sapiente non atque possimus cumque? Voluptates nostrum nulla quis dolor natus, quas
+            repellat eos sed, impedit fuga reiciendis?</p>
+    </header>
+    <main>
+        <div class="img-div">
+            <img src="https://picsum.photos/700/500" alt="" />
+        </div>
+        <div class="blogs-div">
+            <div>
+                <h3>Title</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo non
+                    magni eum voluptate atque provident nisi soluta doloremque rem.
+                    Excepturi quod debitis amet aperiam in iusto vel a sint sed.
+                </p>
+                <button>Read more...</button>
+            </div>
+            <div>
+                <h3>Title</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo non
+                    magni eum voluptate atque provident nisi soluta doloremque rem.
+                    Excepturi quod debitis amet aperiam in iusto vel a sint sed.
+                </p>
+                <button>Read more...</button>
+            </div>
+            <div>
+                <h3>Title</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo non
+                    magni eum voluptate atque provident nisi soluta doloremque rem.
+                    Excepturi quod debitis amet aperiam in iusto vel a sint sed.
+                </p>
+                <button>Read more...</button>
+            </div>
+        </div>
+        <form>
+            <!-- adding comment -->
+            <div class="radio-class">
+                <label for="title">Title
+                    <input required name="title" type="radio">
+                </label>
+                <label for="title">Mr
+                    <input required name="title" type="radio">
+                </label>
+                <label for="title">Mrs
+                    <input required name="title" type="radio">
+                </label>
+                <label for="title">Miss
+                    <input required name="title" type="radio">
+                </label>
+            </div>
+            <label for="fname">First name
+                <input pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" name="fname" type="text">
+            </label>
+            <label for="lname">
+                Last name
+                <input pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" name="lname" type="text">
+            </label>
+            <label for="email">Email
+                <input required type="text" name="email">
+            </label>
+            <label for="phone">Phone Number
+                <input required type="text" name="phone">
+            </label>
+            <label for="password">Password
+                <input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" type="password" name="password">
+            </label>
+            <label for="confirm-pass">
+                Confirm Password
+                <input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" type="password" name="confirm-pass">
+            </label>
+            <label for="country">Country
+                <select type="" name="country">
+                    <option value="ch">Switzerland</option>
+                    <option value="pak">Pakistan</option>
+                    <option value="ci">China</option>
+                    <option value="in">India</option>
+                </select>
+            </label>
+            <label for="term">
+                <input required type="checkbox" name="term">
+                I agree to the terms and conditions
+            </label>
+            <button>Sign Up</button>
+        </form>
+    </main>
+</body>
+
+</html>
