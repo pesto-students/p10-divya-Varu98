@@ -33,8 +33,5 @@ const addM = memoize(add);
 
 time(() => addM(78, 56, 4, 5, 6, 6, 23, 623));
 time(() => addM(78, 56, 4, 5, 6, 6, 23, 623));
-time(() => addM(78, 56));
-time(() => addM(78, 51));
-time(() => addM(78, 51));
 time(() => addM(780000, 9800000));
 time(() => addM(780000, 9800000));
