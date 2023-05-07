@@ -1,69 +1,114 @@
-// Promise Polyfill
-// function promisePolyfill(executor) {
-// }
+function MyPromise(executor) {
+  this.state = "pending";
+  this.value = undefined;
+  this.reason = undefined;
+  this.onFulfilledCallbacks = [];
+  this.onRejectedCallbacks = [];
 
-// const customPromise = new promisePolyfill((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve(2);
-//   }, 2000);
-// });
+  const resolve = (value) => {
+    if (this.state === "pending") {
+      this.state = "fulfilled";
+      this.value = value;
+      this.onFulfilledCallbacks.forEach((cb) => cb(this.value));
+    }
+  };
 
-// customPromise.then((res) => console.log(res)).catch((err) => console.log(err));
+  const reject = (reason) => {
+    if (this.state === "pending") {
+      this.state = "rejected";
+      this.reason = reason;
+      this.onRejectedCallbacks.forEach((cb) => cb(this.reason));
+    }
+  };
 
-class myClass {
-  name = "vardaan";
-  display() {
-    console.log("hello world", this);
-  }
-
-  run(fun) {
-    fun();
-    // this.display();
-  }
-}
-
-const obj = new myClass();
-// obj.display();
-// const display = obj.display.bind(obj);
-// obj.run(obj.display);
-
-class myClass2 {
-  name = "Divya";
-  display() {
-    console.log("hello world", this);
+  try {
+    executor(resolve.bind(this), reject.bind(this));
+  } catch (error) {
+    reject(error);
   }
 }
 
-const newVar = new myClass2();
-
-const display1 = obj.display.bind(newVar);
-obj.run(display1);
-
-// inheritance deriving one class from the other class
-// encapsulation hiding things from the outside world.
-// abstraction Nextjs and react...
-// polymorphism some fn(a, b) fn(a, b ,c) reusability.
-// static and runtime inheritance.
-
-class person {
-  name = "vardaan";
-}
-
-class doctor extends person {
-  skills = "medical";
-
-  opertae() {
-    console.log("operates");
+MyPromise.prototype.then = function (onFulfilled, onRejected) {
+  if (typeof onFulfilled !== "function") {
+    onFulfilled = (value) => value;
   }
-}
 
-class developer extends person {
-  skills = "tech";
-
-  develop() {
-    console.log("develop");
+  if (typeof onRejected !== "function") {
+    onRejected = (reason) => {
+      throw reason;
+    };
   }
-}
 
-const p1 = new person();
-console.log(p1);
+  const promise2 = new MyPromise((resolve, reject) => {
+    if (this.state === "fulfilled") {
+      setTimeout(() => {
+        try {
+          const x = onFulfilled(this.value);
+          resolve(x);
+        } catch (error) {
+          reject(error);
+        }
+      }, 0);
+    } else if (this.state === "rejected") {
+      setTimeout(() => {
+        try {
+          const x = onRejected(this.reason);
+          resolve(x);
+        } catch (error) {
+          reject(error);
+        }
+      }, 0);
+    } else if (this.state === "pending") {
+      this.onFulfilledCallbacks.push((value) => {
+        setTimeout(() => {
+          try {
+            const x = onFulfilled(value);
+            resolve(x);
+          } catch (error) {
+            reject(error);
+          }
+        }, 0);
+      });
+
+      this.onRejectedCallbacks.push((reason) => {
+        setTimeout(() => {
+          try {
+            const x = onRejected(reason);
+            resolve(x);
+          } catch (error) {
+            reject(error);
+          }
+        }, 0);
+      });
+    }
+  });
+
+  return promise2;
+};
+
+MyPromise.prototype.catch = function (onRejected) {
+  return this.then(null, onRejected);
+};
+
+const promiseHandler = () => {
+  const promise = new MyPromise((resolve, reject) => {
+    setTimeout(() => {
+      // const randomNumber = Math.floor(Math.random() * 10);
+      const randomNumber = 5;
+      if (randomNumber % 5 === 0) {
+        resolve(randomNumber);
+      } else {
+        reject(randomNumber);
+      }
+    }, 1000);
+  });
+
+  promise
+    .then((value) => {
+      console.log("Fulfilled:", value, "State:", promise.state);
+      return value * 3;
+    })
+    .catch((error) => console.log("Caught:", error, "State:", promise.state));
+};
+
+promiseHandler();
