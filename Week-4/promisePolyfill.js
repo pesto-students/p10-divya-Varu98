@@ -93,12 +93,12 @@ MyPromise.prototype.catch = function (onRejected) {
 const promiseHandler = () => {
   const promise = new MyPromise((resolve, reject) => {
     setTimeout(() => {
-      // const randomNumber = Math.floor(Math.random() * 10);
-      const randomNumber = 5;
+      const randomNumber = Math.floor(Math.random() * 10);
+      // const randomNumber = 5;
       if (randomNumber % 5 === 0) {
-        resolve(randomNumber);
-      } else {
         reject(randomNumber);
+      } else {
+        resolve(randomNumber);
       }
     }, 1000);
   });
@@ -111,4 +111,15 @@ const promiseHandler = () => {
     .catch((error) => console.log("Caught:", error, "State:", promise.state));
 };
 
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
+promiseHandler();
 promiseHandler();
