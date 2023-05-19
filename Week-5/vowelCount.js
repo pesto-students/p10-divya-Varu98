@@ -18,3 +18,7 @@ function vowelCount(str) {
 }
 console.log(vowelCount("TWYNDYLLYNGS"));
 console.log(vowelCount("Hello World"));
+
+// here time complexity will be O(n) as the loop will iterate over all the elements and the length of the elements will depend on the size of the input.
+
+// Also considering the best and worst case the space complexity will be O(n) since the size of the map will also depend on the input provided.
