@@ -21,6 +21,7 @@ import { fetch20TodoUrl } from '../../Constants/todoUrls';
 import { updateTodos } from '../../Reducers/Todo/actions';
 import TodoItemSkeleton from '../TodoItemSkeleton';
 import SkeletonWrapper from '../SkeletonWrapper';
+import AddTodo from './AddTodo';
 
 const Todo = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialTodos);
@@ -52,7 +53,6 @@ const Todo = () => {
         >
           List of Todos
         </Text>
-
         <Button
           onClick={() => {
             dispatch({ type: UPDATE, payload: temp });
@@ -61,6 +61,7 @@ const Todo = () => {
           Refresh Todos
         </Button>
       </HStack>
+      <AddTodo dispatch={dispatch} />
       {todos.map(item => {
         const { todo, id } = item;
         return <TodoItem dispatch={dispatch} id={id} todo={todo} item={item} />;

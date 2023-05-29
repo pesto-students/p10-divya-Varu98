@@ -1,9 +1,11 @@
-import { DELETE, MARK_DONE, UPDATE } from '../../Constants/todoConstants';
+import { ADD, DELETE, MARK_DONE, UPDATE } from '../../Constants/todoConstants';
 
 export const todoReducer = (todos, action) => {
   const { type, payload } = action;
   // console.log(payload);
   switch (type) {
+    case ADD:
+      return [payload, ...todos];
     case UPDATE:
       return [...payload];
     case DELETE:
