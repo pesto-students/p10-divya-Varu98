@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "builds": [{ "src": "todo-app/package.json", "use": "@vercel/static-build" }],
+  "routes": [{ "src": "/(.*)", "dest": "/todo-app/$1" }]
+}
