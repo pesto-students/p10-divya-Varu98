@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+i{
+    font-size: 1.5rem;
+}
+aside {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  height: 90vh;
+  width: 3rem;
+  background-color: #f0f0f0;
+}
+header {
+  background-color: #454545;
+  height: 30vh;
+  color: whitesmoke;
+  display: flex;
+  justify-content: start;
+}
+.album-img-wrapper {
+  margin: 1rem;
+  width: 15rem;
+}
+.album-details {
+  margin: 1rem 0 1rem 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.album-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.album-action-btn {
+  display: flex;
+  font-size: 1.2rem;
+}
+.album-action-btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+main {
+  margin-left: 3rem;
+  margin-bottom: 10vh;
+  font-size: 1.2rem;
+}
+main a {
+  text-transform: uppercase;
+  /* font-size: 1.2rem; */
+  font-weight: 700;
+  border: 1px solid black;
+  padding: .2rem;
+}
+main table {
+  width: 100%;
+  border-collapse: collapse;
+}
+main td {
+  width: 25%;
+  padding: 0.5rem 2rem;
+  border: none;
+}
+main tr:nth-child(even) {
+  background-color: #4545451f;
+}
+bottom-nav {
+  position: fixed;
+  bottom: 0;
+  height: 10vh;
+  background: #43689b;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  color: whitesmoke;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-bar-left {
+  display: flex;
+}
+
+.action-bar-right {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+.action-bar-img-wrapper img {
+  max-height: 10vh;
+  padding: 0.5rem;
+}
+.action-bar-left-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
