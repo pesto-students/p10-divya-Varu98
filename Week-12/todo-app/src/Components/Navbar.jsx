@@ -7,7 +7,7 @@ const Navbar = () => {
     <HStack h={'8vh'} p={'4'} shadow={'lg'} justifyContent={'space-between'}>
       <HStack>
         <Text fontSize={'3xl'} fontWeight={'semibold'} color={'purple.400'}>
-          Scribbly Tasks
+          Taskify.io
         </Text>
         <Text fontSize={'3xl'}>🖋</Text>
       </HStack>

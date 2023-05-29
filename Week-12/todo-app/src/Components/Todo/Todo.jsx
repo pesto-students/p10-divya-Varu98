@@ -43,7 +43,7 @@ const Todo = () => {
   return loading ? (
     <SkeletonWrapper />
   ) : (
-    <Box>
+    <Box pb={8}>
       <HStack justifyContent={'space-between'}>
         <Text
           fontSize={'3xl'}
