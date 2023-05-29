@@ -1,8 +1,6 @@
 import { Button, HStack, Input, useToast } from '@chakra-ui/react';
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import { ADD } from '../../Constants/todoConstants';
-import { initialTodos } from '../../Reducers/Todo/initialTodos';
-import { todoReducer } from '../../Reducers/Todo/reducer';
 
 const AddTodo = ({ dispatch }) => {
   const toast = useToast();
