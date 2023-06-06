@@ -1,4 +1,5 @@
 import React from "react";
+import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Input from "./components/Input";
@@ -7,7 +8,6 @@ import Output from "./components/Output";
 import { usePostUrl } from "./context/UrlContext";
 
 const App = () => {
-  
   return (
     <>
       <Navbar />
@@ -16,6 +16,7 @@ const App = () => {
         <Input />
         <Output />
       </div>
+      <AboutUs />
       <Footer />
     </>
   );
