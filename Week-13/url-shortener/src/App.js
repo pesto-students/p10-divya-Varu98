@@ -7,8 +7,7 @@ import Output from "./components/Output";
 import { usePostUrl } from "./context/UrlContext";
 
 const App = () => {
-  const { data, setData } = usePostUrl();
-  console.log(data);
+  
   return (
     <>
       <Navbar />
