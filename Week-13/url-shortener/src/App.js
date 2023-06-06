@@ -16,7 +16,7 @@ const App = () => {
         <Input />
         <Output />
       </div>
-      <AboutUs />
+      {/* <AboutUs /> */}
       <Footer />
     </>
   );
