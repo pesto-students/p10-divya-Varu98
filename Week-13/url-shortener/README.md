@@ -2,7 +2,8 @@
 
 Little Link is a URL shortening application built with React and React Router. It allows users to input a URL and get a shortened version of that URL. The application utilizes the "https://api.shrtco.de/v2" API to generate the shortened URLs.
 
-[](https://github.com/pesto-students/p10-divya-Varu98/blob/week-13/Week-13/url-shortener/public/littleLink.gif)
+![Little Link Demo](https://github.com/pesto-students/p10-divya-Varu98/blob/week-13/Week-13/url-shortener/public/littleLink.gif)
+
 
 ## Technologies Used
 
