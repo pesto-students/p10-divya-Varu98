@@ -1,12 +1,8 @@
 import React from "react";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Input from "./components/Input";
 import Navbar from "./components/Navbar";
-import Output from "./components/Output";
-import { usePostUrl } from "./context/UrlContext";
-import { Switch, Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./components/Contact";
 

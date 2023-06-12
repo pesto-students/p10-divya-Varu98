@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Little Link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Little Link is a URL shortening application built with React and React Router. It allows users to input a URL and get a shortened version of that URL. The application utilizes the "https://api.shrtco.de/v2" API to generate the shortened URLs.
 
-## Available Scripts
+[](https://github.com/pesto-students/p10-divya-Varu98/blob/week-13/Week-13/url-shortener/public/littleLink.gif)
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- React
+- React Router
+- Context API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To get started with the Little Link project, follow the instructions below:
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell
+git clone <repository-url>
+```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```shell
+cd little-link
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+npm install
+```
 
-### `npm run eject`
+4. Run the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```shell
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Open your web browser and visit http://localhost:3000 to see the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The project follows a typical React project structure. The main files and directories are as follows:
 
-## Learn More
+- **src/components**: Contains reusable components used throughout the application.
+- **src/contexts**: Contains the context providers for managing state and data.
+- **src/pages**: Contains the individual pages/routes of the application.
+- **src/utils**: Contains utility functions and constants used in the application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Integration
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application integrates with the "https://api.shrtco.de/v2" API to generate shortened URLs. The API endpoint is defined as follows:
 
-### Code Splitting
+```javascript
+export const SHORT_API_URL = "https://api.shrtco.de/v2";
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The `src/utils/api.js` file contains the necessary functions to interact with the API, including sending requests and handling responses.
 
-### Analyzing the Bundle Size
+## Routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Little Link uses React Router for handling routing within the application. The routes are defined in the `src/App.js` file using the `<Switch>` and `<Route>` components from React Router.
 
-### Making a Progressive Web App
+## Context
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The application utilizes the Context API for managing state and data. The main context provider is defined in `src/contexts/LinkContext.js`, which provides access to the link-related data and functionality throughout the application.
 
-### Advanced Configuration
+## Conclusion
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Little Link is a simple URL shortening application built with React and React Router. It demonstrates the usage of React Router for routing and the Context API for state management. By integrating with the "https://api.shrtco.de/v2" API, the application generates shortened URLs based on user input. Feel free to explore the codebase and make any modifications as needed. Happy coding!
