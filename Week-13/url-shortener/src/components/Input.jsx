@@ -16,7 +16,7 @@ const Input = () => {
   return (
     <form
       onSubmit={submitHandler}
-      className="w-full md:max-w-[50vw] mx-auto mb-8"
+      className="w-full mt-8 md:max-w-[50vw] mx-auto mb-8"
     >
       <label
         htmlFor="url"
@@ -25,7 +25,7 @@ const Input = () => {
         Search
       </label>
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="absolute max-sm:bottom-12 inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg
             aria-hidden="true"
             className="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -53,9 +53,10 @@ const Input = () => {
           size="30"
           required
         />
+        {/* max-sm:top-20 max-sm:left-20 */}
         <button
           type="submit"
-          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white max-sm:mt-4 max-sm:ml-16 md:absolute md:right-2.5 md:bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Shorten My Url, ASAP!!
         </button>

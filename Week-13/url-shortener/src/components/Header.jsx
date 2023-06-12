@@ -14,7 +14,7 @@ const Header = () => {
           emails. Save time and experience the convenience today!
         </p>
       </div>
-      <div className="max-sm:order-1 max-sm:-translate-y-16 -z-10">
+      <div className="max-sm:order-1 max-sm:-translate-y-2 -z-10">
         <img className="max-sm:h-[40vh] " src="/url-short.gif" alt="" />
       </div>
     </div>
