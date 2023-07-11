@@ -7,6 +7,7 @@ const BookList = () => {
   const [books, setBooks] = useState(listOfBooks);
   return (
     <ul className="book-container">
+      <h2>List of Books</h2>
       {books.map((book) => (
         <BookItem book={book} />
       ))}
