@@ -1,0 +1,22 @@
+.book-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+.book-item {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  align-items: start;
+  justify-content: start;
+  text-align: left;
+}
+.book-year {
+  min-width: 5rem;
+}
+.book-title {
+  min-width: 25rem;
+}
