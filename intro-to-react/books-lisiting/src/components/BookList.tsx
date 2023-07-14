@@ -1,8 +1,11 @@
-import React, { Component,  } from "react";
+import React, { Component } from "react";
 import { listOfBooks } from "../libs/listOfBooks";
 import "./booklist.css";
 import BookItem from "./BookItem";
 import { Book } from "../types/book";
+import withLogging from "./withLogging";
+
+
 
 interface BookListState {
   books: Book[];
@@ -24,4 +27,4 @@ class BookList extends Component<any, BookListState> {
   }
 }
 
-export default BookList;
+export default withLogging(BookList);
