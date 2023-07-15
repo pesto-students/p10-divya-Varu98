@@ -22,7 +22,7 @@ const Input = () => {
         htmlFor="url"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
       >
-        Search
+        Link
       </label>
       <div className="relative">
         <div className="absolute max-sm:bottom-12 inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
