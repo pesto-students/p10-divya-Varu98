@@ -28,28 +28,40 @@ const BookForm = (props: BookFormProps) => {
 
   return (
     <form onSubmit={submitBook}>
-      <TextField
-        name="title"
-        onChange={handleBookinfo}
-        id="standard-basic"
-        label="Title"
-        variant="standard"
-      />
-      <TextField
-        name="author"
-        onChange={handleBookinfo}
-        id="standard-basic"
-        label="Author"
-        variant="standard"
-      />
-      <TextField
-        name="year"
-        onChange={handleBookinfo}
-        id="standard-basic"
-        label="Year of the book"
-        variant="standard"
-      />
-      <Button type="submit">Submit</Button>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          padding: "2rem",
+        }}
+      >
+        <h3>Submit a book</h3>
+        <TextField
+          name="title"
+          onChange={handleBookinfo}
+          id="standard-basic"
+          label="Title"
+          variant="standard"
+        />
+        <TextField
+          name="author"
+          onChange={handleBookinfo}
+          id="standard-basic"
+          label="Author"
+          variant="standard"
+        />
+        <TextField
+          name="year"
+          onChange={handleBookinfo}
+          id="standard-basic"
+          label="Year of the book"
+          variant="standard"
+        />
+        <Button variant="contained" type="submit">
+          Submit
+        </Button>
+      </Box>
     </form>
   );
 };
