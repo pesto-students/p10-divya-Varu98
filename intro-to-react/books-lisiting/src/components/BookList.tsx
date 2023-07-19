@@ -1,28 +1,34 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { listOfBooks } from "../libs/listOfBooks";
 import "./booklist.css";
 import BookItem from "./BookItem";
 import { Book } from "../types/book";
 import withLogging from "./withLogging";
+import { BookFormProps } from "./BookForm";
 
-interface BookListState {
-  books: Book[];
-}
-class BookList extends Component<any, BookListState> {
-  constructor(props: any) {
-    super(props);
-    this.state = { books: listOfBooks };
-  }
-  render() {
-    return (
-      <ul className="book-container">
-        <h2>List of Books</h2>
-        {this.state.books.map((book: Book) => (
-          <BookItem book={book} />
-        ))}
-      </ul>
-    );
-  }
-}
+const BookList = (props: BookFormProps) => {
+  const { bookList, setBookList } = props;
 
-export default withLogging(BookList);
+  useEffect(() => {
+    console.log("delete", bookList);
+  }, [bookList]);
+  const handleDelete = (title: string) => {
+    let updatedBooks = bookList.filter((book) => book.title !== title);
+    setBookList([...updatedBooks]);
+  };
+  return (
+    <ul className="book-container">
+      <h2>List of Books</h2>
+      {bookList.length === 0 && <p>No Books Present, Add Books To Show...</p>}
+      {bookList.map((book, index) => (
+        <BookItem
+          handleDelete={handleDelete}
+          setBookList={setBookList}
+          book={book}
+        />
+      ))}
+    </ul>
+  );
+};
+
+export default BookList;

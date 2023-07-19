@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type Book = {
   author: string;
   title: string;
@@ -6,10 +8,13 @@ export type Book = {
 
 export interface BookItemProps {
   book: Book;
+  setBookList: Dispatch<SetStateAction<Book[]>>;
 }
 
 export interface BookDetailProps {
   book: Book;
+  setBookList: Dispatch<SetStateAction<Book[]>>;
+  handleDelete: (title: string) => void;
 }
 
 export interface BookListState {

@@ -4,14 +4,16 @@ import "./App.css";
 import BookList from "./components/BookList";
 import BookForm from "./components/BookForm";
 import { Book } from "./types/book";
+import { listOfBooks } from "./libs/listOfBooks";
+import { Box } from "@mui/material";
 
 function App() {
-  const [bookList, setBookList] = useState<Book[]>([]);
+  const [bookList, setBookList] = useState<Book[]>(listOfBooks);
   return (
-    <div className="App">
-      {/* <BookList /> */}
+    <Box sx={{ display: "flex", flexDirection: "column" }} className="App">
       <BookForm bookList={bookList} setBookList={setBookList} />
-    </div>
+      <BookList bookList={bookList} setBookList={setBookList} />
+    </Box>
   );
 }
 

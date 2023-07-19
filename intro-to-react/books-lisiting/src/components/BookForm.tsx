@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { useState, ChangeEvent, Dispatch, SetStateAction } from "react";
 import { Book } from "../types/book";
 
-interface BookFormProps {
+export interface BookFormProps {
   bookList: Book[];
   setBookList: Dispatch<SetStateAction<Book[]>>;
 }
@@ -19,11 +19,15 @@ const BookForm = (props: BookFormProps) => {
     const { name, value } = e.target;
     setBookinfo((prev) => ({ ...prev, [name]: value }));
     console.log(bookinfo);
+  };
+
+  const submitBook = (e: any) => {
+    e.preventDefault();
     setBookList((booksPresent) => [...booksPresent, bookinfo]);
   };
 
   return (
-    <form>
+    <form onSubmit={submitBook}>
       <TextField
         name="title"
         onChange={handleBookinfo}
@@ -45,7 +49,7 @@ const BookForm = (props: BookFormProps) => {
         label="Year of the book"
         variant="standard"
       />
-      <Button>Submit</Button>
+      <Button type="submit">Submit</Button>
     </form>
   );
 };

@@ -1,16 +1,21 @@
 import { PureComponent } from "react";
-import { BookItemProps } from "../types/book";
+import { BookDetailProps, BookItemProps } from "../types/book";
+import { Delete } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
-class BookItem extends PureComponent<BookItemProps> {
-  render() {
-    const { book } = this.props;
-    return (
-      <li className="book-item">
-        <p className="book-year">{book.year}</p>
-        <h3 className="book-title">{book.title}</h3>
-        <p>{book.author}</p>
-      </li>
-    );
-  }
-}
+const BookItem = (props: BookDetailProps) => {
+  const { book, setBookList, handleDelete } = props;
+ 
+  return (
+    <li className="book-item">
+      <p className="book-year">{book.year}</p>
+      <h3 className="book-title">{book.title}</h3>
+      <p>{book.author}</p>
+      <Button onClick={()=>{handleDelete(book.title)}}>
+        <Delete sx={{ color: "red" }} />
+      </Button>
+    </li>
+  );
+};
+
 export default BookItem;
