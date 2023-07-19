@@ -5,8 +5,6 @@ import BookItem from "./BookItem";
 import { Book } from "../types/book";
 import withLogging from "./withLogging";
 
-
-
 interface BookListState {
   books: Book[];
 }

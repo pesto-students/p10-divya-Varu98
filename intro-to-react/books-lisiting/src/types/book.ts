@@ -1,7 +1,7 @@
 export type Book = {
-  title: string;
   author: string;
-  year: number;
+  title: string;
+  year: number | string;
 };
 
 export interface BookItemProps {
@@ -9,9 +9,9 @@ export interface BookItemProps {
 }
 
 export interface BookDetailProps {
-  book : Book
+  book: Book;
 }
 
 export interface BookListState {
-books : Book[]
+  books: Book[];
 }
