@@ -1,30 +1,23 @@
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  FormEvent,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 import { Book } from "../types/book";
 
 export const useBookFilter = (bookList: Book[]) => {
-  const [filteredBooks, setFilteredBooks] = useState<[] | Book[]>(bookList);
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    updateBooksBasedOnSearch(search);
-  }, [search]);
+  const filteredBooks = useMemo(() => {
+    if (!search.trim()) {
+      return bookList;
+    }
+
+    const lowercaseSearch = search.toLowerCase();
+    return bookList.filter((book: Book) =>
+      book.title.toLowerCase().includes(lowercaseSearch)
+    );
+  }, [search, bookList]); // Memoize based on the search term and the book list
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearch(value);
-  };
-
-  const updateBooksBasedOnSearch = (search: string) => {
-    let updatedBooks = bookList.filter((book: Book) =>
-      book.title.toLowerCase().includes(search.toLowerCase())
-    );
-    setFilteredBooks(updatedBooks);
   };
 
   return { filteredBooks, handleSearch };
