@@ -20,3 +20,11 @@ export interface BookDetailProps {
 export interface BookListState {
   books: Book[];
 }
+
+export interface BookLoaderProps {
+  bookList: Book[];
+  setBookList: Dispatch<SetStateAction<Book[]>>;
+}
+export interface useBookFilterProps {
+  bookList: Book[] | [];
+}
