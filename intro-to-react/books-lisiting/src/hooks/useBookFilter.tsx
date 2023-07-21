@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { Book, useBookFilterProps } from "../types/book";
+import { Book } from "../types/book";
 
 export const useBookFilter = (bookList: Book[]) => {
   const [filteredBooks, setFilteredBooks] = useState<[] | Book[]>(bookList);
@@ -27,5 +27,5 @@ export const useBookFilter = (bookList: Book[]) => {
     setFilteredBooks(updatedBooks);
   };
 
-  return {filteredBooks, handleSearch} 
+  return { filteredBooks, handleSearch };
 };
