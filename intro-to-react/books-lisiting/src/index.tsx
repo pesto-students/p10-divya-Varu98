@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
+    <ThemeProvider _theme_={"theme"}>
       <App />
     </ThemeProvider>
   </React.StrictMode>

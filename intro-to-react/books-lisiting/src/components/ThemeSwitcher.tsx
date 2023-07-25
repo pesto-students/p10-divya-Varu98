@@ -1,23 +1,24 @@
 import { ModeNight, WbSunny } from "@mui/icons-material";
-import { Box, ToggleButton } from "@mui/material";
+import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useTheme } from "../context/ThemeContext";
 
 const ThemeSwitcher = () => {
   const { setTheme } = useTheme();
 
   const handleChange = (e: any) => {
-    const value = e.target.value;
-    setTheme(value);
+    setTheme(e.target.value);
   };
 
   return (
     <Box>
-      <ToggleButton onChange={handleChange} value={"light"}>
-        <WbSunny />
-      </ToggleButton>
-      <ToggleButton onChange={handleChange} value={"light"}>
-        <ModeNight />
-      </ToggleButton>
+      <ToggleButtonGroup onChange={handleChange}>
+        <ToggleButton value={"light"}>
+          <WbSunny />
+        </ToggleButton>
+        <ToggleButton value={"dark"}>
+          <ModeNight />
+        </ToggleButton>
+      </ToggleButtonGroup>
     </Box>
   );
 };
