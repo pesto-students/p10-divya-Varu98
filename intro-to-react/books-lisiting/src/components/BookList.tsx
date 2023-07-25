@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import { useBookFilter } from "../hooks/useBookFilter";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const BookList = (props: BookFormProps) => {
   const { bookList, setBookList } = props;
@@ -33,6 +34,7 @@ const BookList = (props: BookFormProps) => {
     <>
       {/* <ul className="book-container"> */}
       <TableContainer sx={{ maxWidth: "60vw", marginInline: "auto" }}>
+        <ThemeSwitcher />
         <h2>List of Books</h2>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <TextField
