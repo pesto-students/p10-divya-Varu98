@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-app.use(express.json());
+const { requestLogger, validateID } = require("./middlewares");
+app.use(express.json(), requestLogger);
 const port = 8000;
 
 const tasksDB = [
@@ -67,7 +68,7 @@ app.post("/tasks", (req, res) => {
   return res.status(201).json(task);
 });
 
-app.post("/tasks/:id", (req, res) => {
+app.get("/tasks/:id", validateID, (req, res) => {
   const id = Number(req.params.id);
   if (!id) return res.status(400).json({ message: "id required" });
 
@@ -76,7 +77,7 @@ app.post("/tasks/:id", (req, res) => {
   return res.status(200).json(post);
 });
 
-app.put("/tasks/:id", (req, res) => {
+app.put("/tasks/:id", validateID, (req, res) => {
   const id = Number(req.params.id);
   const taskToUpdate = tasksDB.find((task) => task.id === id);
 
@@ -92,7 +93,7 @@ app.put("/tasks/:id", (req, res) => {
   return res.status(200).json(taskToUpdate);
 });
 
-app.delete("/tasks/:id", (req, res) => {
+app.delete("/tasks/:id", validateID, (req, res) => {
   const id = Number(req.params.id);
   const taskToDelete = tasksDB.find((task) => task.id === id);
   if (!id)
@@ -101,5 +102,7 @@ app.delete("/tasks/:id", (req, res) => {
       .json({ message: "Bad Request, please provide valid id" });
 
   if (!taskToDelete) return res.status(404).json({ message: "Task not found" });
-  
+
+  const updatedTasks = tasksDB.filter((task) => task.id !== id);
+  return res.status(200).json({ message: "Task deleted", taskToDelete });
 });
