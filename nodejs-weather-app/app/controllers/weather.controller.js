@@ -34,10 +34,36 @@ const fetchMultipleCities = async (req, res) => {
 
 const fetchForecast = async (req, res) => {
     try {
-        const { city, days } = req.query;
+        const { city, days, hour, date } = req.query;
+        let formatedDate = new Date(date).toISOString().split('T')[0];
+        if (date && !formatedDate)
+            return res.status(400).send({ message: 'Please provide date in ISO Format' });
+
         if (!city || !days)
             return res.status(400).send({ message: 'Please provide days and city' });
 
+        if (hour) {
+            const { data } = await axios.get(
+                `${BASE_URL}${PATH.forecast}?q=${city}&days=${days}&hour=${hour}&key=${API_Key}`,
+            );
+
+            return res.status(200).send(data);
+        }
+
+        if (date) {
+            const { data } = await axios.get(
+                `${BASE_URL}${PATH.forecast}?q=${city}&days=${days}&dt=${date}&key=${API_Key}`,
+            );
+
+            return res.status(200).send(data);
+        }
+        if (formatedDate && hour) {
+            const { data } = await axios.get(
+                `${BASE_URL}${PATH.forecast}?q=${city}&days=${days}&dt=${date}&hour=${hour}&key=${API_Key}`,
+            );
+
+            return res.status(200).send(data);
+        }
         const { data } = await axios.get(
             `${BASE_URL}${PATH.forecast}?q=${city}&days=${days}&key=${API_Key}`,
         );
