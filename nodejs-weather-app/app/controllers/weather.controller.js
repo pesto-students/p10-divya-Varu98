@@ -32,4 +32,22 @@ const fetchMultipleCities = async (req, res) => {
     }
 };
 
+const fetchForecast = async (req, res) => {
+    try {
+        const { city, days } = req.query;
+        if (!city || !days)
+            return res.status(400).send({ message: 'Please provide days and city' });
+
+        const { data } = await axios.get(
+            `${BASE_URL}${PATH.forecast}?q=${city}&days=${days}&key=${API_Key}`,
+        );
+        console.log(data);
+
+        return res.status(200).send(data);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 module.exports.fetchMultipleCities = fetchMultipleCities;
+module.exports.fetchForecast = fetchForecast;
