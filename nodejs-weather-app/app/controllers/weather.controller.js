@@ -49,5 +49,18 @@ const fetchForecast = async (req, res) => {
     }
 };
 
+const fetchCityForecast = async (req, res) => {
+    const { city } = req.query;
+    if (!city) return res.status(400).send({ message: 'Please provide a city' });
+
+    try {
+        const { data } = await axios.get(`${BASE_URL}${PATH.current}?q=${city}&key=${API_Key}`);
+        return res.status(200).send(data);
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
+module.exports.fetchCityForecast = fetchCityForecast;
 module.exports.fetchMultipleCities = fetchMultipleCities;
 module.exports.fetchForecast = fetchForecast;
