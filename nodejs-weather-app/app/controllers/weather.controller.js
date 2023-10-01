@@ -4,6 +4,9 @@ const { BASE_URL, API_Key, PATH } = require('../config/weather_api.config');
 const fetchMultipleCities = async (req, res) => {
     try {
         let cities = req.query.city;
+        const page = parseInt(req.query.page) || 1;
+        const pageSize = parseInt(req.query.pageSize) || 1;
+
         if (!cities)
             return res.status(400).send({ message: "Request's query parameters cannot be empty" });
 
@@ -17,7 +20,12 @@ const fetchMultipleCities = async (req, res) => {
         });
 
         const currentWeatherPerCity = await Promise.all(requests);
-        res.status(200).send(currentWeatherPerCity);
+        const startIndex = (page - 1) * pageSize;
+        const endIndex = page * pageSize;
+
+        const paginatedData = currentWeatherPerCity.slice(startIndex, endIndex);
+
+        res.status(200).send(paginatedData);
     } catch (error) {
         console.log(error.message);
         res.status(500).send({ message: 'An error occured while fetching weather data' });
